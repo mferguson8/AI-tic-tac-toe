@@ -10,6 +10,7 @@ def main():
     game.currentWinner = None
 
     while True:
+        print("Player is X's and AI is O's.")
         game.print_board()
         if game.currentWinner is not None or game.is_full():
             print("Game over.")

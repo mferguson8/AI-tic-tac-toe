@@ -38,12 +38,18 @@ class TicTacToe:
         self.currentWinner = None
 
     def print_board(self):
+        # Print the board to the console with row and column labels
         symbol_map = {1: 'X', -1: 'O', 0: ' '}
-        print("\nBoard")
-        for row in self.board:
-            print('-------------')
-            print('| ' + ' | '.join(symbol_map[cell] for cell in row) + ' |')
-        print('-------------')
+        print("\nBoard:")
+        # Print column labels
+        print('   ' + '   '.join(str(j) for j in range(3)))
+        print('  ' + '----' * 3)
+        for i, row in enumerate(self.board):
+            # Print row label and row content
+            row_content = ' | '.join(symbol_map[cell] for cell in row)
+            print(f"{i} | {row_content} |")
+            print('  ' + '----' * 3)
+
 
 
     
