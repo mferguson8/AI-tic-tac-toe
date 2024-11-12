@@ -13,7 +13,7 @@ class TicTacToe:
 
     def make_move(self, row, col, player):
         #place the players piece on the board
-        if self.board(row, col) == 0:
+        if self.board[row, col] == 0:
             self.board[row, col] = player
             if self.check_winner == player:
                 self.currentWinner = player
@@ -31,7 +31,7 @@ class TicTacToe:
         return False
 
     def is_full(self):
-        return not any(self.board[i, j] for i in range(3) for j in range(3))
+        return not any(self.board[i, j] == 0 for i in range(3) for j in range(3))
 
     def reset(self):
         self.board = np.zeros((3, 3), dtype=int)
@@ -41,7 +41,9 @@ class TicTacToe:
         symbol_map = {1: 'X', -1: 'O', 0: ' '}
         print("\nBoard")
         for row in self.board:
+            print('-------------')
             print('| ' + ' | '.join(symbol_map[cell] for cell in row) + ' |')
+        print('-------------')
 
 
     

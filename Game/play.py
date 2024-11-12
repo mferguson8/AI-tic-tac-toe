@@ -5,12 +5,14 @@ import torch
 def main():
     game = TicTacToe()
     ai = TicTacToeAI()
-    ai.load_state_dict(torch.load('tic_tac_toe_ai.pth'))
+    ai.load_state_dict(torch.load('tic_tac_toe_ai.pth', weights_only=True))
     player = 1  # Player is 1 (X), AI is -1 (O)
+    game.currentWinner = None
 
     while True:
         game.print_board()
-        if game.current_winner is not None or game.is_full():
+        if game.currentWinner is not None or game.is_full():
+            print("Game over.")
             break
 
         if player == 1:
@@ -32,13 +34,13 @@ def main():
 
         player *= -1  # Switch turn
 
-    game.print_board()
-    if game.current_winner == 1:
-        print("You win!")
-    elif game.current_winner == -1:
-        print("AI wins!")
-    else:
-        print("It's a tie!")
+        game.print_board()
+        if game.currentWinner == 1:
+            print("You win!")
+        elif game.currentWinner == -1:
+            print("AI wins!")
+        else:
+            print("It's a tie!")
 
 if __name__ == '__main__':
     main()

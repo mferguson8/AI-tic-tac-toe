@@ -18,7 +18,7 @@ def generate_training_data(num_samples):
 
         while True:
             available = game.available_moves()
-            if not available or game.current_winner is not None:
+            if not available or game.currentWinner is not None:
                 break
 
             move = np.random.choice(len(available))
@@ -30,7 +30,7 @@ def generate_training_data(num_samples):
             player *= -1  # Switch player
 
         # Assign labels (1 if win, 0 otherwise)
-        label = 1 if game.current_winner == -1 else 0
+        label = 1 if game.currentWinner == -1 else 0
 
         for state, move in zip(board_states, moves):
             if game.board[move[0], move[1]] == -1:
