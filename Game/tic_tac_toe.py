@@ -15,7 +15,7 @@ class TicTacToe:
         #place the players piece on the board
         if self.board[row, col] == 0:
             self.board[row, col] = player
-            if self.check_winner == player:
+            if self.check_winner(player):
                 self.currentWinner = player
             return True
         return False
