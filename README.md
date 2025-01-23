@@ -5,4 +5,4 @@ Train the AI (this may take a few minutes):
 	python train_ai.py
 Play against the AI:	
 
-	python play.py
+	python3 game_gui.py
